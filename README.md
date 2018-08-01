@@ -45,50 +45,12 @@ curl -X GET \
 GET /v1/q/depth
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td>INT</td>
-      <td>false</td>
-      <td>50</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>precision</td>
-      <td>INT</td>
-      <td>false</td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | |
+| size | INT | false | 50 | |
+| precision | INT | false | | |
 
 Response:
 ```json
@@ -147,43 +109,11 @@ Response:
 GET /v1/q/deals
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td>INT</td>
-      <td>false</td>
-      <td>20</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | |
+| size | INT | false | 20 | |
 
 Response:
 ``` json
@@ -248,59 +178,13 @@ Response:
 GET /v1/u/trade/order/listUnfinished
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>page</td>
-      <td>INT</td>
-      <td>false</td>
-      <td>1</td>
-      <td>Page number.</td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td>INT</td>
-      <td>false</td>
-      <td>10</td>
-      <td>Page size, max 100.</td>
-    </tr>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Trade pair, <strong>e.g.</strong>, BTC_USDT.
-      </td>
-    </tr>
-    <tr>
-      <td>direction</td>
-      <td>STRING</td>
-      <td>false</td>
-      <td></td>
-      <td>Trade direction. `BID` or `ASK`.</td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| page | INT | false | 1 | Page number. |
+| size | INT | false | 10 | Page size, max 100. |
+| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
+| direction | STRING | false | | Trade direction, `BID` or `ASK`. |
 
 Response:
 ``` json
@@ -342,73 +226,15 @@ GET /v1/u/trade/order/history
 <strong>NOTE:</strong> Default duration is 3 days, and max duration is 7 days.
 
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>page</td>
-      <td>INT</td>
-      <td>false</td>
-      <td>1</td>
-      <td>Page number.</td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td>INT</td>
-      <td>false</td>
-      <td>10</td>
-      <td>Page size, max 100.</td>
-    </tr>
-    <tr>
-      <td>startTime</td>
-      <td>LONG</td>
-      <td>false</td>
-      <td></td>
-      <td>Order start time.</td>
-    </tr>
-    <tr>
-      <td>endTime</td>
-      <td>LONG</td>
-      <td>false</td>
-      <td></td>
-      <td>Order finish time.</td>
-    </tr>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Trade pair, <strong>e.g.</strong>, BTC_USDT.
-      </td>
-    </tr>
-    <tr>
-      <td>direction</td>
-      <td>STRING</td>
-      <td>false</td>
-      <td></td>
-      <td>Trade direction. `BID` or `ASK`.</td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| page | INT | false | 1 | Page number. |
+| size | INT | false | 10 | Page size, max 100. |
+| startTime | LONG | false | | Order start time. |
+| endTime | LONG | false | | Order finish time. |
+| pair | STRING | true | | Trade pair, <strong>e.g.</strong>, `BTC_USDT`. |
+| direction | STRING | false | | Trade direction, `BID` or `ASK`. |
 
 Response:
 ```json
@@ -448,59 +274,13 @@ Response:
 POST /v1/u/trade/order/create
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order pair, <strong>e.g.</strong>, BTC_USDT.
-      </td>
-    </tr>
-    <tr>
-      <td>direction</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>Trade direction, `BID` or `ASK`.</td>
-    </tr>
-    <tr>
-      <td>price</td>
-      <td>DECIMAL</td>
-      <td>true</td>
-      <td></td>
-      <td>Order price.</td>
-    </tr>
-    <tr>
-      <td>amount</td>
-      <td>DECIMAL</td>
-      <td>true</td>
-      <td></td>
-      <td>Order amount.</td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
+| direction | STRING | false | | Trade direction, `BID` or `ASK`. |
+| price | DECIMAL | true | | Order price. |
+| amount | DECIMAL | true | | Order amount. |
 
 Response:
 ```json
@@ -516,45 +296,11 @@ Response:
 POST /v1/u/trade/order/cancel
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order pair, <strong>e.g.</strong>, BTC_USDT.
-      </td>
-    </tr>
-    <tr>
-      <td>orderNo</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>Order id.</td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
+| orderNo | STRING | true | | Order id. |
 
 Response:
 ```json
@@ -570,47 +316,11 @@ Response:
 GET /v1/u/trade/order/unfinished/detail
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order pair. e.g., BTC_USDT.
-      </td>
-    </tr>
-    <tr>
-      <td>orderNo</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order Id.
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
+| orderNo | STRING | true | | Order id. |
 
 Response:
 ```
@@ -639,47 +349,11 @@ Response:
 GET /v1/u/trade/order/finished/detail
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderNo</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order Id.
-      </td>
-    </tr>
-    <tr>
-      <td>updateTime</td>
-      <td>LONG</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order update time.
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| orderNo | STRING | true | | Order id. |
+| updateTime | LONG | true | | Order update time. |
 
 Response:
 ```json
@@ -708,66 +382,14 @@ Response:
 POST /v1/u/trade/order/batchCreate
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order pair, <strong>e.g.</strong>, BTC_USDT.
-      </td>
-    </tr>
-    <tr>
-      <td>direction</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>Trade direction, `BID` or `ASK`.</td>
-    </tr>
-    <tr>
-      <td>price</td>
-      <td>DECIMAL</td>
-      <td>true</td>
-      <td></td>
-      <td>Order price.</td>
-    </tr>
-    <tr>
-      <td>amount</td>
-      <td>DECIMAL</td>
-      <td>true</td>
-      <td></td>
-      <td>Order amount.</td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td>INT</td>
-      <td>true</td>
-      <td></td>
-      <td>Order size, max 20.</td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
+| direction | STRING | true | | Trade direction, `BID` or `ASK`. |
+| price | DECIMAL | true | | Order price. |
+| amount | DECIMAL | true | | Order amount. |
+| size | INT | true | | Order size, max 20. |
 
 Response:
 ```json
@@ -790,39 +412,16 @@ Response:
 POST /v1/u/trade/order/batchCancel
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orders</td>
-      <td>LIST</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order list, <strong>e.g.</strong>, 
-        [{createdTime: 1532177952546,dealAmount: 0,dealAvgPrice: 0,direction: "ASK",frozenAmountByOrder: 10,id: "2018072120591254687003222",orderType: "LIMIT",pair: "BKK_USDT",price: 0.12,status: 0,totalAmount: 10,updateTime: null}].
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| orders | ARRAY | true | | Order list, **e.g.**,  
+||||| `[` |
+|||||   `{` |
+|||||     `"id": "2018072120591254687003222",` |
+|||||     `"pair": "BKK_USDT"` |
+|||||   `}` |
+||||| `]` |
 
 Response:
 ```json
@@ -845,38 +444,11 @@ Response:
 POST /v1/u/trade/order/batchCancelByPair
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pair</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-        Order pair, <strong>e.g.</strong>, BTC_USDT.
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
 
 Response:
 ```json
@@ -900,38 +472,10 @@ Response:
 GET /v1/u/wallet/balance
 ```
 Parameters:
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>coinTypes</td>
-      <td>STRING</td>
-      <td>false</td>
-      <td></td>
-      <td>
-        Coin type separate by `,`, <strong>e.g.</strong>, `BTC`, `BTC,USDT`.
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| coinTypes | STRING | false | | Coin type separate by `,`, **e.g.**, `BTC`, `BTC,USDT`.
 
 Response:
 ```json
