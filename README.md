@@ -1,4 +1,4 @@
-# bkex-official-api-docs
+# BKEX Official API Document
 ### API服务域名：
 
 BASE_END_POINT=https://api.bkex.com
@@ -26,7 +26,7 @@ curl -X GET \
   -H 'X_SIGNATURE: 550ac73ace8c34372e0e1dd6631e890c7bd16697af8bb4e2908e966b50aba4e0' \
 ```
 
-- 首先对请求参数的key进行生序排列得到结果 ```pair=ETH_USDT&precision=2```  
+- 首先对请求参数的key进行ASCII排列得到结果 ```pair=ETH_USDT&precision=2```  
 - 然后使用secretKey 进行HMAC SHA256进行加密
 
 ```shell
