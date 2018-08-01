@@ -415,13 +415,7 @@ Parameters:
 
 | Name | Type | Required | Default | Description  |
 | ---- | ---- | -------- | ------- | ------------ |
-| orders | ARRAY | true | | Order list, **e.g.**, 
-`[ 
-   { 
-     "id": "2018072120591254687003222",
-     "pair": "BKK_USDT"
-   } 
- ]` |
+| orders | ARRAY | true | | Order list, **e.g.**, `[{ "id": "2018072120591254687003222", "pair": "BKK_USDT" }]` |
 
 Response:
 ```json
