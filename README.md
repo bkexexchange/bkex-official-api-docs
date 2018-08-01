@@ -39,60 +39,94 @@ curl -X GET \
 
 
 
-### Example
+## Examples
 
-#### /v1/q/depth
-
-##### Request
-
-``` shell
-curl -X GET \
-  'http://<BASE_END_POINT>/v1/q/depth?pair=ETH_USDT&precision=2' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -H 'X_ACCESS_KEY: vmsUZE6mv9SD5VNak4HlWFsOr6aKE2zvsw0MuIgwCIGy6utIco14y7Ju91duEh82' \
-  -H 'X_SIGNATURE: 550ac73ace8c34372e0e1dd6631e890c7bd16697af8bb4e2908e966b50aba4e0' \
+## Quotation API
+### Get quotation depth
 ```
+GET /v1/q/depth
+```
+Parameters:
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Required
+      </th>
+      <th>
+        Default
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pair</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>INT</td>
+      <td>false</td>
+      <td>50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>precision</td>
+      <td>INT</td>
+      <td>false</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-| 参数名  | 是否必填 | 默认值 |
-| ------- | -------- | ------ |
-| pair    | 是       | --     |
-| precisi |          |        |
-
+Response:
 ```json
 {
-    "msg": "success",
-    "code": 0,
-    "data": {
-        "asks": [
-            {
-                "pair": "ETH_USDT",
-                "direction": "ASK",
-                "amt": 50,
-                "price": 1.32
-            },
-            {
-                "pair": "ETH_USDT",
-                "direction": "ASK",
-                "amt": 40,
-                "price": 2.32
-            }
-        ],
-        "bids": [
-            {
-                "pair": "ETH_USDT",
-                "direction": "BID",
-                "amt": 1250,
-                "price": 1.12
-            },
-            {
-                "pair": "ETH_USDT",
-                "direction": "BID",
-                "amt": 160,
-                "price": 1.11
-            }
-        ]
-    }
+  "msg": "success",
+  "code": 0,
+  "data": {
+    "asks": [
+      {
+        "pair": "ETH_USDT",
+        "direction": "ASK",
+        "amt": 50,
+        "price": 1.32
+      },
+      {
+        "pair": "ETH_USDT",
+        "direction": "ASK",
+        "amt": 40,
+        "price": 2.32
+      }
+    ],
+    "bids": [
+      {
+        "pair": "ETH_USDT",
+        "direction": "BID",
+        "amt": 1250,
+        "price": 1.12
+      },
+      {
+        "pair": "ETH_USDT",
+        "direction": "BID",
+        "amt": 160,
+        "price": 1.11
+      }
+    ]
+  }
 }
 ```
 
@@ -110,75 +144,91 @@ curl -X GET \
 
 
 
-
-#### /v1/q/deals
-
-
-
-##### Request
-
-``` shell
-curl -X GET \
-  'http://<BASE_END_POINT>/v1/q/deals?pair=ETH_USDT' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -H 'X_ACCESS_KEY: vmsUZE6mv9SD5VNak4HlWFsOr6aKE2zvsw0MuIgwCIGy6utIco14y7Ju91duEh82' \
-  -H 'X_SIGNATURE: 89ea66e105c803bcd1d9f0b6d5a8448087afc1859b32cb487bfebc2f467499ba' \
+### Get quotation deals
 ```
+GET /v1/q/deals
+```
+Parameters:
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Required
+      </th>
+      <th>
+        Default
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pair</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>INT</td>
+      <td>false</td>
+      <td>20</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-
-
-| 参数名 | 是否必填 | 默认值 |
-| ------ | -------- | ------ |
-| pair   | 是       | ---    |
-
-
-
-
-
-##### Response
-
+Response:
 ``` json
 {
-    "msg": "success",
-    "code": 0,
-    "data": [
-        {
-            "pair": "ETH_USDT",
-            "dealAmount": 10,
-            "price": 1.3236,
-            "createdTime": 1532190888913,
-            "tradeDealDirection": "B"
-        },
-        {
-            "pair": "ETH_USDT",
-            "dealAmount": 10,
-            "price": 1.3236,
-            "createdTime": 1532190887795,
-            "tradeDealDirection": "B"
-        },
-        {
-            "pair": "ETH_USDT",
-            "dealAmount": 10,
-            "price": 1.3235,
-            "createdTime": 1532190886739,
-            "tradeDealDirection": "B"
-        },
-        {
-            "pair": "ETH_USDT",
-            "dealAmount": 10,
-            "price": 1.3235,
-            "createdTime": 1532190862672,
-            "tradeDealDirection": "B"
-        },
-        {
-            "pair": "ETH_USDT",
-            "dealAmount": 10,
-            "price": 1.3234,
-            "createdTime": 1532190862398,
-            "tradeDealDirection": "B"
-        }
-    ]
+  "msg": "success",
+  "code": 0,
+  "data": [
+    {
+      "pair": "ETH_USDT",
+      "dealAmount": 10,
+      "price": 1.3236,
+      "createdTime": 1532190888913,
+      "tradeDealDirection": "B"
+    },
+    {
+      "pair": "ETH_USDT",
+      "dealAmount": 10,
+      "price": 1.3236,
+      "createdTime": 1532190887795,
+      "tradeDealDirection": "B"
+    },
+    {
+      "pair": "ETH_USDT",
+      "dealAmount": 10,
+      "price": 1.3235,
+      "createdTime": 1532190886739,
+      "tradeDealDirection": "B"
+    },
+    {
+      "pair": "ETH_USDT",
+      "dealAmount": 10,
+      "price": 1.3235,
+      "createdTime": 1532190862672,
+      "tradeDealDirection": "B"
+    },
+    {
+      "pair": "ETH_USDT",
+      "dealAmount": 10,
+      "price": 1.3234,
+      "createdTime": 1532190862398,
+      "tradeDealDirection": "B"
+    }
+  ]
 }
 ```
 
@@ -195,7 +245,7 @@ curl -X GET \
 
 
 ## Trade API
-### Get All unfinished order
+### Get all unfinished order
 ```
 GET /v1/u/trade/order/listUnfinished
 ```
@@ -255,39 +305,39 @@ Parameters:
 </table>
 
 Response:
-```
+``` json
 {
-  code: 0,
-  data: {
-    data:[
+  "code": 0,
+  "data": {
+    "data":[
       {
-        createdTime: 1532177952546,
-        dealAmount: 0,
-        dealAvgPrice: 0,
-        direction: "ASK",
-        frozenAmountByOrder: 10,
-        id: "2018072120591254687003222",
-        orderType: "LIMIT",
-        pair: "BKK_USDT",
-        price: 0.12,
-        status: 0,
-        totalAmount: 10,
-        updateTime: null
+        "createdTime": 1532177952546,
+        "dealAmount": 0,
+        "dealAvgPrice": 0,
+        "direction": "ASK",
+        "frozenAmountByOrder": 10,
+        "id": "2018072120591254687003222",
+        "orderType": "LIMIT",
+        "pair": "BKK_USDT",
+        "price": 0.12,
+        "status": 0,
+        "totalAmount": 10,
+        "updateTime": null
       }
     ],
-    pageRequest: {
-      page: 1, 
-      size: 100, 
-      orderBy: "id", 
-      asc: false
+    "pageRequest": {
+      "page": 1, 
+      "size": 100, 
+      "orderBy": "id", 
+      "asc": false
     },
-    total:1
+    "total": 1
   },
-  msg: "success"
+  "msg": "success"
 }
 ```
 
-### Get All finished order
+### Get all finished order
 ```
 GET /v1/u/trade/order/history
 ```
@@ -363,35 +413,35 @@ Parameters:
 </table>
 
 Response:
-```
+```json
 {
-  code: 0,
-  data: {
-    data:[
+  "code": 0,
+  "data": {
+    "data":[
       {
-        createdTime: 1532177952546,
-        dealAmount: 0,
-        dealAvgPrice: 0,
-        direction: "ASK",
-        frozenAmountByOrder: 10,
-        id: "2018072120591254687003222",
-        orderType: "LIMIT",
-        pair: "BKK_USDT",
-        price: 0.12,
-        status: 0,
-        totalAmount: 10,
-        updateTime: 1532177952546
+        "createdTime": 1532177952546,
+        "dealAmount": 0,
+        "dealAvgPrice": 0,
+        "direction": "ASK",
+        "frozenAmountByOrder": 10,
+        "id": "2018072120591254687003222",
+        "orderType": "LIMIT",
+        "pair": "BKK_USDT",
+        "price": 0.12,
+        "status": 0,
+        "totalAmount": 10,
+        "updateTime": 1532177952546
       }
     ],
-    pageRequest: {
-      page: 1, 
-      size: 100, 
-      orderBy: "id", 
-      asc: false
+    "pageRequest": {
+      "page": 1, 
+      "size": 100, 
+      "orderBy": "id", 
+      "asc": false
     },
-    total:1
+    "total": 1
   },
-  msg: "success"
+  "msg": "success"
 }
 ```
 
@@ -455,11 +505,11 @@ Parameters:
 </table>
 
 Response:
-```
+```json
 {
-  code: 0,
-  data: "2018072120591254687003222",
-  msg: "success"
+  "code": 0,
+  "data": "2018072120591254687003222",
+  "msg": "success"
 }
 ```
 
@@ -509,11 +559,11 @@ Parameters:
 </table>
 
 Response:
-```
+```json
 {
-  code: 0,
-  data: "2018072120591254687003222",
-  msg: "success"
+  "code": 0,
+  "data": "2018072120591254687003222",
+  "msg": "success"
 }
 ```
 
@@ -634,24 +684,215 @@ Parameters:
 </table>
 
 Response:
-```
+```json
 {
-  code: 0,
-  data: {
-    createdTime: 1532177952546,
-    dealAmount: 0,
-    dealAvgPrice: 0,
-    direction: "ASK",
-    frozenAmountByOrder: 10,
-    id: "2018072120591254687003222",
-    orderType: "LIMIT",
-    pair: "BKK_USDT",
-    price: 0.12,
-    status: 0,
-    totalAmount: 10,
-    updateTime: null
+  "code": 0,
+  "data": {
+    "createdTime": 1532177952546,
+    "dealAmount": 0,
+    "dealAvgPrice": 0,
+    "direction": "ASK",
+    "frozenAmountByOrder": 10,
+    "id": "2018072120591254687003222",
+    "orderType": "LIMIT",
+    "pair": "BKK_USDT",
+    "price": 0.12,
+    "status": 0,
+    "totalAmount": 10,
+    "updateTime": null
   },
-  msg: "success"
+  "msg": "success"
+}
+```
+
+### Batch create new order
+```
+POST /v1/u/trade/order/batchCreate
+```
+Parameters:
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Required
+      </th>
+      <th>
+        Default
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pair</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td>
+        Order pair, <strong>e.g.</strong>, BTC_USDT.
+      </td>
+    </tr>
+    <tr>
+      <td>direction</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td>Trade direction, `BID` or `ASK`.</td>
+    </tr>
+    <tr>
+      <td>price</td>
+      <td>DECIMAL</td>
+      <td>true</td>
+      <td></td>
+      <td>Order price.</td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>DECIMAL</td>
+      <td>true</td>
+      <td></td>
+      <td>Order amount.</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>INT</td>
+      <td>true</td>
+      <td></td>
+      <td>Order size, max 20.</td>
+    </tr>
+  </tbody>
+</table>
+
+Response:
+```json
+{
+  "code": 0,
+  "data": {
+    "success": 2,
+    "fail": 0,
+    "results": [
+      "2018072120591254687003222",
+      "2018072120591254687003223"
+    ]
+  },
+  "msg": "success"
+}
+```
+
+### Batch cancel order
+```
+POST /v1/u/trade/order/batchCancel
+```
+Parameters:
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Required
+      </th>
+      <th>
+        Default
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orders</td>
+      <td>LIST</td>
+      <td>true</td>
+      <td></td>
+      <td>
+        Order list, <strong>e.g.</strong>, 
+        [{createdTime: 1532177952546,dealAmount: 0,dealAvgPrice: 0,direction: "ASK",frozenAmountByOrder: 10,id: "2018072120591254687003222",orderType: "LIMIT",pair: "BKK_USDT",price: 0.12,status: 0,totalAmount: 10,updateTime: null}].
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Response:
+```json
+{
+  "code": 0,
+  "data": {
+    "success": 2,
+    "fail": 0,
+    "results": [
+      "2018072120591254687003222", 
+      "2018072120591254687003223"
+    ]
+  },
+  "msg": "success"
+}
+```
+
+### Batch cancel order by pair
+```
+POST /v1/u/trade/order/batchCancelByPair
+```
+Parameters:
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Required
+      </th>
+      <th>
+        Default
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pair</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td>
+        Order pair, <strong>e.g.</strong>, BTC_USDT.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Response:
+```json
+{
+  "code": 0,
+  "data": {
+    "success": 2,
+    "fail": 0,
+    "results": [
+      "2018072120591254687003222", 
+      "2018072120591254687003223"
+    ]
+  },
+  "msg": "success"
 }
 ```
 
@@ -695,17 +936,17 @@ Parameters:
 </table>
 
 Response:
-```
+```json
 {
-  code: 0,
-  data: [
+  "code": 0,
+  "data": [
     {
-      coinType: 'BTC',
-      available: 1,
-      frozen: 0,
-      total: 1
+      "coinType": 'BTC',
+      "available": 1,
+      "frozen": 0,
+      "total": 1
     }
   ],
-  msg: "success"
+  "msg": "success"
 }
 ```
