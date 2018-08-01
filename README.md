@@ -39,8 +39,6 @@ curl -X GET \
 
 
 
-## Examples
-
 ## Quotation API
 ### Get quotation depth
 ```
@@ -941,7 +939,7 @@ Response:
   "code": 0,
   "data": [
     {
-      "coinType": 'BTC',
+      "coinType": "BTC",
       "available": 1,
       "frozen": 0,
       "total": 1
