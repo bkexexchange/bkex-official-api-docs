@@ -385,11 +385,9 @@ Parameters:
 
 | Name | Type | Required | Default | Description  |
 | ---- | ---- | -------- | ------- | ------------ |
-| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
-| direction | STRING | true | | Trade direction, `BID` or `ASK`. |
-| price | DECIMAL | true | | Order price. |
-| amount | DECIMAL | true | | Order amount. |
-| size | INT | true | | Order size, max 20. |
+| orders | ARRAY | true | | Order list, **e.g.**, `[{ "pair": "BKK_USDT", "direction": "BID", price: 10, amount: 10 }]` |
+
+**NOTE:** The order quantity should be at least one, up to a maximum of 20.
 
 Response:
 ```json
