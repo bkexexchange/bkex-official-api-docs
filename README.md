@@ -385,7 +385,7 @@ Parameters:
 
 | Name | Type | Required | Default | Description  |
 | ---- | ---- | -------- | ------- | ------------ |
-| orders | ARRAY | true | | Order list, **e.g.**, `[{ "pair": "BKK_USDT", "direction": "BID", price: 10, amount: 10 }]` |
+| orders | ARRAY | true | | Order list, **e.g.**, `[{ "pair": "BKK_USDT", "direction": "BID", "price": 10, "amount": 10 }]` |
 
 **NOTE:** The order quantity should be at least one, up to a maximum of 20.
 
