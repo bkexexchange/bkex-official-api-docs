@@ -385,7 +385,7 @@ Parameters:
 
 | Name | Type | Required | Default | Description  |
 | ---- | ---- | -------- | ------- | ------------ |
-| orders | String | true | | Order list, **e.g.**, `[{ "pair": "BKK_USDT", "direction": "BID", "price": 10, "amount": 10 }]` |
+| orders | String | true | | Order list, **e.g.**, `[{"pair":"BKK_USDT","direction":"BID","price":10,"amount":10}]` |
 
 **NOTE:** The order quantity should be at least one, up to a maximum of 20.
 
@@ -413,7 +413,7 @@ Parameters:
 
 | Name | Type | Required | Default | Description  |
 | ---- | ---- | -------- | ------- | ------------ |
-| orders | String | true | | Order list, **e.g.**, `[{ "id": "2018072120591254687003222", "pair": "BKK_USDT" }]` |
+| orders | String | true | | Order list, **e.g.**, `[{"id":"2018072120591254687003222","pair":"BKK_USDT"}]` |
 
 Response:
 ```json
