@@ -499,7 +499,7 @@ BASE_END_POINT=wss://ws.bkex.com
 
 ### request
 
-```json
+```javascript
 [
     "quotationDealConnect",
     {
@@ -510,7 +510,7 @@ BASE_END_POINT=wss://ws.bkex.com
 
 ### 全量 response
 
-```json
+```javascript
 [
     "quotationAllDeal",
     [
@@ -542,7 +542,7 @@ BASE_END_POINT=wss://ws.bkex.com
 
 ### 增量 response
 
-```json
+```javascript
 [
     "quotationListOrder",
     [
@@ -563,7 +563,7 @@ d：主动成交方向，S：卖单成交，B：买单成交
 
 ### request
 
-```json
+```javascript
 [
     "quotationOrderConnect",
     {
@@ -575,7 +575,7 @@ d：主动成交方向，S：卖单成交，B：买单成交
 
 ### 全量 response
 
-```json
+```javascript
 [
     "quotationAllOrder",
     [
@@ -606,7 +606,7 @@ d：主动成交方向，S：卖单成交，B：买单成交
 
 ### 增量 response
 
-```json
+```javascript
 [
     "quotationListOrder",
     [
@@ -627,7 +627,7 @@ D：委托方向，S：卖单，B：买单
 
 ### request
 
-```json
+```javascript
 [
     "qAllConnect"
 ]
@@ -635,7 +635,7 @@ D：委托方向，S：卖单，B：买单
 
 ### response
 
-```json
+```javascript
 [
     "qPairsStats",
     [
@@ -667,7 +667,7 @@ D：委托方向，S：卖单，B：买单
 
 ### request
 
-```json
+```javascript
 [
     "quotationConnect",
     {
@@ -683,7 +683,7 @@ D：委托方向，S：卖单，B：买单
 type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’， 数字表示分钟，1D指一天，1W指一周
 
 ### 全量 response 
-``` json
+``` javascript
 	
 [
     "qPairsAllKLine",
@@ -721,7 +721,7 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
 
 ### 增量 response
 
-```json
+```javascript
 [
     "qPairsKLine",
     {
