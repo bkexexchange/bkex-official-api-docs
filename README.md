@@ -1,4 +1,7 @@
 # BKEX Official API Document
+
+# HTTP API
+
 ### API服务域名：
 
 BASE_END_POINT=https://api.bkex.com
@@ -484,3 +487,265 @@ Response:
   "msg": "success"
 }
 ```
+
+# Web Socket API
+
+BASE_END_POINT=wss://ws.bkex.com
+
+命名空间 /quotation
+
+
+## 1.最新成交
+
+### request
+
+```json
+[
+    "quotationDealConnect",
+    {
+        "pair": "EOS_USDT", //交易对
+    }
+]
+```
+
+### 全量 response
+
+```json
+[
+    "quotationAllDeal",
+    [
+        {
+            "pair": "EOS_USDT", //交易对
+            "p": "0.0018", //价格 price
+            "a": 100, //交易量 amount
+            "t": 1536995479309, //时间
+            "d": "S" //方向 direction
+        },
+        {
+            "pair": "EOS_USDT", //交易对
+            "p": "0.0017", //价格 price
+            "a": 100, //交易量 amount
+            "t": 1536995478065, //时间
+            "d": "S" //方向 direction
+        },
+        {
+            "pair": "EOS_USDT", //交易对
+            "p": "0.0016", //价格 price
+            "a": 100, //交易量 amount
+            "t": 1536995476865, //时间
+            "d": "S" //方向 direction
+        }
+    ]
+]
+```
+
+
+### 增量 response
+
+```json
+[
+    "quotationListOrder",
+    [
+         {
+            "pair": "EOS_USDT", //交易对
+            "p": "0.0016", //价格 price
+            "a": 100, //交易量 amount
+            "t": 1536995476865, //时间
+            "d": "S" //方向 direction
+        }
+    ]
+]
+```
+
+d：主动成交方向，S：卖单成交，B：买单成交
+
+## 2.深度
+
+### request
+
+```json
+[
+    "quotationOrderConnect",
+    {
+        "pair": "EOS_USDT", //交易对
+        "number": 50
+    }
+]
+```
+
+### 全量 response
+
+```json
+[
+    "quotationAllOrder",
+    [
+        {
+            "pair": "EOS_USDT", //交易对
+            "p": "3521.0000", //价格 price
+            "a": 1.0000, //交易量 amount
+            "v": 3521.0000, //交易额 volume
+            "d": "BID" //方向 direction
+        },
+        {
+            "pair": "EOS_USDT", //交易对
+            "p": "3515.0000", //价格 price
+            "a": 1.0000, //交易量 amount
+            "v": 3515.0000, //交易额 volume
+            "d": "BID" //方向 direction
+        },
+        {
+            "pair": "EOS_USDT", //交易对
+            "p": "4337.0000", //价格 price
+            "a": 1.0000, //交易量 amount
+            "v": 3337.0000, //交易额 volume
+            "d": "ASK" //方向 direction
+        }
+    ]
+]
+```
+
+### 增量 response
+
+```json
+[
+    "quotationListOrder",
+    [
+        {
+            "pair": "EOS_USDT", //交易对
+            "p": "140.0000", //价格 price
+            "a": -1.000000000000000000, //交易量 amount
+            "v": -140.0000000000000000000000, //交易额 volume
+            "d": "BID" //方向 direction
+        }
+    ]
+]
+```
+
+D：委托方向，S：卖单，B：买单
+
+## 24 小时行情
+
+### request
+
+```json
+[
+    "qAllConnect"
+]
+```
+
+### response
+
+```json
+[
+    "qPairsStats",
+    [
+        {
+            "pair": "BKK_USDT", //交易对
+            "o": 0.0, //开盘价
+            "c": 0.0, //收盘价
+            "h": 0.0, //最高价
+            "l": 0.0, //最低价
+            "a": 0.0, //交易量 amount
+            "r": 0 //涨跌
+
+        },
+        {
+            "pair": "BTC_USDT", //交易对
+            "o": 1.08, //开盘价
+            "c": 1.0, //收盘价
+            "h": 353.99, //最高价
+            "l": 1.0, //最低价
+            "a": 179723.54, //交易量 amount
+            "r": -0.07 //涨跌
+
+        }
+    ]
+]
+```
+
+## K 线增量
+
+### request
+
+```json
+[
+    "quotationConnect",
+    {
+        "pair": "EOS_USDT", //交易对
+        "type": "15", //时间间隔
+        "from": 1536142476, //开始时间
+        "to": 1537006536, //结束时间
+        "no": "153700647609762483" //唯一key
+    }
+]
+```
+
+type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’， 数字表示分钟，1D指一天，1W指一周
+
+### 全量 response 
+``` json
+	
+[
+    "qPairsAllKLine",
+    {
+        "no": "153700647609762483",
+        "list": [
+            {
+                "t": 1536636600, //时间
+                "c": 990.0, //收盘价
+                "o": 10.0, //开盘价
+                "h": 990.0, //最高价
+                "l": 10.0, //最低价
+                "a": 262.25 //交易量 amount
+            },
+            {
+                "t": 1536637500, //时间
+                "c": 4990.0, //收盘价
+                "o": 10.0, //开盘价
+                "h": 4990.0, //最高价
+                "l": 10.0, //最低价
+                "a": 6165.05 //交易量 amount
+            },
+            {
+                "t": 1536638400, //时间
+                "c": 0.0, //收盘价
+                "o": 0.0, //开盘价
+                "h": 0.0, //最高价
+                "l": 0.0, //最低价
+                "a": 0.0 //交易量 amount
+            }
+        ]
+    }
+]
+```
+
+### 增量 response
+
+```json
+[
+    "qPairsKLine",
+    {
+        "t": 1537005600, //时间
+        "c": 0.0018, //收盘价
+        "o": 0.0018, //开盘价
+        "h": 0.0018, //最高价
+        "l": 0.0018, //最低价
+        "a": 0.0, //交易量 amount
+    }
+]
+```
+
+## Socket.io Demo
+
+```javascript
+
+  var socket = io('http://127.0.0.1:48080/quotation', { transports: ['websocket'] });
+  
+  socket.on('connect', function (data) {
+    socket.emit('qAllConnect'); //获取24小时行情
+  });
+  
+```
+
+
+
