@@ -408,7 +408,7 @@ Response:
 }
 ```
 
-### Batch cancel order
+### Batch cancel order (deprecated)
 ```
 POST /v1/u/trade/order/batchCancel
 ```
@@ -434,7 +434,7 @@ Response:
 }
 ```
 
-### Batch cancel order by pair
+### Batch cancel order by pair (deprecated)
 ```
 POST /v1/u/trade/order/batchCancelByPair
 ```
