@@ -408,59 +408,6 @@ Response:
 }
 ```
 
-### Batch cancel order (deprecated)
-```
-POST /v1/u/trade/order/batchCancel
-```
-Parameters:
-
-| Name | Type | Required | Default | Description  |
-| ---- | ---- | -------- | ------- | ------------ |
-| orders | String | true | | Order list, **e.g.**, `[{"id":"2018072120591254687003222","pair":"BKK_USDT"}]` |
-
-Response:
-```json
-{
-  "code": 0,
-  "data": {
-    "success": 2,
-    "fail": 0,
-    "results": [
-      "2018072120591254687003222", 
-      "2018072120591254687003223"
-    ]
-  },
-  "msg": "success"
-}
-```
-
-### Batch cancel order by pair (deprecated)
-```
-POST /v1/u/trade/order/batchCancelByPair
-```
-Parameters:
-
-
-| Name | Type | Required | Default | Description  |
-| ---- | ---- | -------- | ------- | ------------ |
-| pair | STRING | true | | Trade pair, **e.g.**, `BTC_USDT`. |
-
-Response:
-```json
-{
-  "code": 0,
-  "data": {
-    "success": 2,
-    "fail": 0,
-    "results": [
-      "2018072120591254687003222", 
-      "2018072120591254687003223"
-    ]
-  },
-  "msg": "success"
-}
-```
-
 ## Wallet API
 ### Get user account balance
 ```
