@@ -696,7 +696,7 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
   
 ```
 
-## native WebScokdt Demo
+## Native WebScokdt Demo
 
 ```javascript
     var pingPong = null;
