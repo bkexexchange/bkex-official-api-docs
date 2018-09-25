@@ -683,7 +683,7 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
 ```
 
 ## Socket.io Demo(推荐)
-https://socket.io/
+Socket.io官网: https://socket.io/
 
 ```javascript
   var io = require('socket.io-client'); //@1.3.6
