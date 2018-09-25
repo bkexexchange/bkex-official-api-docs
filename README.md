@@ -682,7 +682,7 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
 ]
 ```
 
-## Socket.io Demo
+## Socket.io Demo(推荐)
 
 ```javascript
   var io = require('socket.io-client'); @1.3.6
@@ -696,7 +696,7 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
   
 ```
 
-## native WebScokdt Demo(不推荐)
+## native WebScokdt Demo
 
 ```javascript
     var pingPong = null;
