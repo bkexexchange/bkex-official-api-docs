@@ -685,7 +685,7 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
 ## Socket.io Demo(推荐)
 
 ```javascript
-  var io = require('socket.io-client'); @1.3.6
+  var io = require('socket.io-client'); //@1.3.6
   //<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 
   var socket = io('wss://ws.bkex.com/quotation', { transports: ['websocket'] });
