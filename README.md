@@ -610,7 +610,7 @@ D：委托方向，S：卖单，B：买单
 ]
 ```
 
-## K 线增量
+## K 线
 
 ### request
 
@@ -685,13 +685,44 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
 ## Socket.io Demo
 
 ```javascript
+  var io = require('socket.io-client'); @1.3.6
+  //<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 
-  var socket = io('http://127.0.0.1:48080/quotation', { transports: ['websocket'] });
+  var socket = io('wss://ws.bkex.com/quotation', { transports: ['websocket'] });
   
   socket.on('connect', function (data) {
     socket.emit('qAllConnect'); //获取24小时行情
   });
   
+```
+
+## native WebScokdt Demo(不推荐)
+
+```javascript
+    var pingPong = null;
+    ws = new WebSocket("wss://ws.bkex.com/socket.io/?EIO=3&transport=websocket");
+    ws.onopen = function() {
+      pingPong = setInterval(function () { //跟服务端ping pong 保持连接额状态
+        ws.send('2');
+      }, 20 * 1000)
+
+    };
+    ws.onmessage = function(e) {
+        
+        if(e.data === '40') { //链接成功
+          ws.send('40/quotation')
+        }
+
+        else if(e.data === '40/quotation') { //进入命名空间成功
+          console.log('进入命名空间')
+          ws.send('42/quotation,["quotationConnect",{"pair": "EOS_USDT","type": "15","from": 1536142476,"to": 1537865828,"no": "153700647609762483"}]')
+        } 
+        
+        else { //其他消息
+          
+        }
+    };
+
 ```
 
 
