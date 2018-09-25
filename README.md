@@ -714,7 +714,6 @@ type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’，
         }
 
         else if(e.data === '40/quotation') { //进入命名空间成功
-          console.log('进入命名空间')
           ws.send('42/quotation,["quotationConnect",{"pair": "EOS_USDT","type": "15","from": 1536142476,"to": 1537865828,"no": "153700647609762483"}]')
         } 
         
