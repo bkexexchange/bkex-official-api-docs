@@ -697,7 +697,7 @@ Socket.io官网: https://socket.io/
   
 ```
 
-## Native WebScokdt Demo
+## Native WebScoket Demo
 
 ```javascript
     var pingPong = null;
