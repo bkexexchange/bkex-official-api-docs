@@ -40,7 +40,47 @@ curl -X GET \
 
 - 构造http请求:  使用  ```X_ACCESS_KEY``` 这个header存储access key信息，  使用``` X_SIGNATURE``` header 存储第二步生成的签名信息， 然后发送http请求
 
+## Examples
 
+## Exchange API
+
+### Get exchangeInfo
+
+```
+GET /v1/exchangeInfo
+```
+
+Response:
+
+```json
+{
+  "msg": "success",
+  "code": 0,
+  "data": {
+    "coinTypes": [
+      {
+        "coinType": "ETH",
+        "isSupportDeposit": true,
+        "isSupportWithdraw": true,
+        "isSupportTrade": true,
+        "minWithdrawSingle": 10,
+        "maxWithdrawSingle": 100,
+        "maxWithdrawOneDay": 5000,
+        "withdrawFee": 0.01,
+      }
+    ],
+    "pairs": [
+      {
+        "pair": "ETH_USDT",
+        "isSupportTrade": true,
+        "pricePrecision": 8,
+        "amountPrecision": 4,
+        "minimumTradeAmount": 0.1,
+      }
+    ]
+  }
+}
+```
 
 ## Quotation API
 ### Get quotation depth
@@ -173,6 +213,112 @@ Response:
 
   tradeDealDirection: 主动成交方向。 主动成交方向，如果是主动发起买单成交，代表外盘，值是B， 如果是主动卖单来成交，代表内盘，值是S
 
+
+### 24hr ticker price change statistics
+
+```
+GET /v1/q/ticker
+```
+
+Parameters:
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | |
+
+Response:
+
+```json
+{
+  "msg": "success",
+  "code": 0,
+  "data": {
+    "pair": "ETH_USDT",
+    "o": 0.0, //开盘价
+    "c": 0.0, //收盘价
+    "h": 0.0, //最高价
+    "l": 0.0, //最低价
+    "a": 0.0, //交易量 amount
+    "r": 0 //涨跌
+  }
+}
+```
+
+### Pair price ticker
+
+```
+GET /v1/q/ticker/price
+```
+
+Parameters:
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | |
+
+Response:
+
+```json
+{
+  "msg": "success",
+  "code": 0,
+  "data": {
+    "pair": "ETH_USDT",
+    "price": 0.0
+  }
+}
+```
+
+### Kline
+
+```
+GET /v1/q/kline
+```
+
+Parameters:
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| pair | STRING | true | | |
+| interval | STRING | false | 1m | Interval enum: "1m", "3m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "8h", "12h", "1d", "3d", "1w" |
+| size | INT | false | 500 | Default 500, max 1000 |
+| from | LONG | false | | |
+| to | LONG | false | | |
+
+Response:
+
+```json
+{
+  "msg": "success",
+  "code": 0,
+  "data": [
+    {
+      "t": 1536636600, //时间
+      "c": 990.0, //收盘价
+      "o": 10.0, //开盘价
+      "h": 990.0, //最高价
+      "l": 10.0, //最低价
+      "a": 262.25 //交易量 amount
+    },
+    {
+      "t": 1536637500, //时间
+      "c": 4990.0, //收盘价
+      "o": 10.0, //开盘价
+      "h": 4990.0, //最高价
+      "l": 10.0, //最低价
+      "a": 6165.05 //交易量 amount
+    },
+    {
+      "t": 1536638400, //时间
+      "c": 0.0, //收盘价
+      "o": 0.0, //开盘价
+      "h": 0.0, //最高价
+      "l": 0.0, //最低价
+      "a": 0.0 //交易量 amount
+    }
+  ]
+}
+```
 
 
 ## Trade API
@@ -417,7 +563,7 @@ Parameters:
 
 | Name | Type | Required | Default | Description  |
 | ---- | ---- | -------- | ------- | ------------ |
-| coinTypes | STRING | false | | Coin type separate by `,`, **e.g.**, `BTC`, `BTC,USDT`.
+| coinTypes | STRING | false | | Coin type separate by `,`, **e.g.**, `BTC`, `BTC,USDT`. |
 
 Response:
 ```json
@@ -431,6 +577,209 @@ Response:
       "total": 1
     }
   ],
+  "msg": "success"
+}
+```
+
+### Get user coin address
+
+```
+GET /v1/u/wallet/address
+```
+
+Parameters:
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| coinType | STRING | true | | |
+
+Response:
+
+```json
+{
+  "code": 0,
+  "data": [
+    {
+      "coinType": "BTC",
+      "address": "0x0af7f36b8f09410f3df62c81e5846da673d4d9a9",
+      "memo": null
+    }
+  ],
+  "msg": "success"
+}
+```
+
+<!-- ### Create withdraw
+
+```
+GET /v1/u/wallet/withdraw
+```
+
+Parameters:
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Required
+      </th>
+      <th>
+        Default
+      </th>
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>coinType</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>DECIMAL</td>
+      <td>true</td>
+      <td></td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>txAddress</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>memo</td>
+      <td>STRING</td>
+      <td>false</td>
+      <td></td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>STRING</td>
+      <td>true</td>
+      <td></td>
+      <td>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Response:
+
+```json
+{
+  "code": 0,
+  "data": null,
+  "msg": "success"
+}
+``` -->
+
+### Get user deposit record
+
+```
+GET /v1/u/wallet/depositRecord
+```
+
+Parameters:
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| coinType | STRING | false | | |
+| from | LONG | false | | |
+| to | LONG | false | | |
+| page | INT | false | 1 | |
+| size | INT | false | 10 | |
+
+Response:
+
+```json
+{
+  "code": 0,
+  "data": {
+    "data": [
+      {
+        "id": "2018061010003171",
+        "createTime": 1532177952546,
+        "coinType": "BTC",
+        "fromAddress": "1FKN1DZqCm8HaTujDioRL2Aezdh7Qj7xxx",
+        "toAddress": "1FKN1DZqCm8HaTujDioRL2Aezdh7Qj7xxx",
+        "amount": 10,
+        "status": 1,
+        "hash": "7ce842de187c379abafadd64a5fe66c5c61c8a21fb04edff9532234a1dae6xxx",
+        "confirmed": 30,
+        "needConfirmed": 30
+      }
+    ],
+    "pageRequest": {
+      "page": 1,
+      "size": 10,
+      "asc": false
+    },
+    "total": 1
+  },
+  "msg": "success"
+}
+```
+
+### Get user withdraw record
+
+```
+GET /v1/u/wallet/withdrawRecord
+```
+
+Parameters:
+
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| coinType | STRING | false | | |
+| from | LONG | false | | |
+| to | LONG | false | | |
+| page | INT | false | 1 | |
+| size | INT | false | 10 | |
+
+Response:
+
+```json
+{
+  "code": 0,
+  "data": {
+    "data": [
+      {
+        "id": "2018061010003171",
+        "createTime": 1532177952546,
+        "coinType": "BTC",
+        "fromAddress": "1FKN1DZqCm8HaTujDioRL2Aezdh7Qj7xxx",
+        "toAddress": "1FKN1DZqCm8HaTujDioRL2Aezdh7Qj7xxx",
+        "amount": 10,
+        "status": 1,
+        "hash": "7ce842de187c379abafadd64a5fe66c5c61c8a21fb04edff9532234a1dae6xxx",
+        "fee": 0.1
+      }
+    ],
+    "pageRequest": {
+      "page": 1,
+      "size": 10,
+      "asc": false
+    },
+    "total": 1
+  },
   "msg": "success"
 }
 ```
