@@ -609,7 +609,7 @@ Response:
 }
 ```
 
-<!-- ### Create withdraw
+### Create withdraw
 
 ```
 GET /v1/u/wallet/withdraw
@@ -617,69 +617,13 @@ GET /v1/u/wallet/withdraw
 
 Parameters:
 
-<table>
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Type
-      </th>
-      <th>
-        Required
-      </th>
-      <th>
-        Default
-      </th>
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>coinType</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td>amount</td>
-      <td>DECIMAL</td>
-      <td>true</td>
-      <td></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td>txAddress</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td>memo</td>
-      <td>STRING</td>
-      <td>false</td>
-      <td></td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td>password</td>
-      <td>STRING</td>
-      <td>true</td>
-      <td></td>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Name | Type | Required | Default | Description  |
+| ---- | ---- | -------- | ------- | ------------ |
+| coinType | STRING | true | | |
+| amount | DECIMAL | true | | |
+| txAddress | STRING | true | | |
+| memo | STRING | false | | |
+| password | STRING | true | | |
 
 Response:
 
@@ -689,7 +633,7 @@ Response:
   "data": null,
   "msg": "success"
 }
-``` -->
+```
 
 ### Get user deposit record
 
