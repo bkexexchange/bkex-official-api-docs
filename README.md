@@ -228,7 +228,7 @@ Parameters:
 
 Response:
 
-```json
+```javascript
 {
   "msg": "success",
   "code": 0,
@@ -287,7 +287,7 @@ Parameters:
 
 Response:
 
-```json
+```javascript
 {
   "msg": "success",
   "code": 0,
