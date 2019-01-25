@@ -6,7 +6,7 @@
 
 BASE_END_POINT=https://api.bkex.com
 
-
+*Read this in other languages: [English](api_EN.md)
 
 ### 加密过程
 
