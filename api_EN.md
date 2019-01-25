@@ -1,3 +1,5 @@
+*回到中文版本: [中文](README.md)
+
 # BKEX Official API Documentation
 
 # HTTP API
