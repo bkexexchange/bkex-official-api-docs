@@ -1,3 +1,5 @@
+*Read this in English: [English](api_EN.md)
+
 # BKEX Official API Document
 
 # HTTP API
@@ -5,8 +7,6 @@
 ### API服务域名：
 
 BASE_END_POINT=https://api.bkex.com
-
-*Read this in other languages: [English](api_EN.md)
 
 ### 加密过程
 
@@ -880,143 +880,4 @@ D：委托方向，S：卖单，B：买单
     "qPairsStats",
     [
         {
-            "pair": "BKK_USDT", //交易对
-            "o": 0.0, //开盘价
-            "c": 0.0, //收盘价
-            "h": 0.0, //最高价
-            "l": 0.0, //最低价
-            "a": 0.0, //交易量 amount
-            "r": 0 //涨跌
-
-        },
-        {
-            "pair": "BTC_USDT", //交易对
-            "o": 1.08, //开盘价
-            "c": 1.0, //收盘价
-            "h": 353.99, //最高价
-            "l": 1.0, //最低价
-            "a": 179723.54, //交易量 amount
-            "r": -0.07 //涨跌
-
-        }
-    ]
-]
-```
-
-## K 线
-
-### request
-
-```javascript
-[
-    "quotationConnect",
-    {
-        "pair": "EOS_USDT", //交易对
-        "type": "15", //时间间隔
-        "from": 1536142476, //开始时间
-        "to": 1537006536, //结束时间
-        "no": "153700647609762483" //唯一key
-    }
-]
-```
-
-type 包括 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’， 数字表示分钟，1D指一天，1W指一周
-
-### 全量 response 
-``` javascript
-	
-[
-    "qPairsAllKLine",
-    {
-        "no": "153700647609762483",
-        "list": [
-            {
-                "t": 1536636600, //时间
-                "c": 990.0, //收盘价
-                "o": 10.0, //开盘价
-                "h": 990.0, //最高价
-                "l": 10.0, //最低价
-                "a": 262.25 //交易量 amount
-            },
-            {
-                "t": 1536637500, //时间
-                "c": 4990.0, //收盘价
-                "o": 10.0, //开盘价
-                "h": 4990.0, //最高价
-                "l": 10.0, //最低价
-                "a": 6165.05 //交易量 amount
-            },
-            {
-                "t": 1536638400, //时间
-                "c": 0.0, //收盘价
-                "o": 0.0, //开盘价
-                "h": 0.0, //最高价
-                "l": 0.0, //最低价
-                "a": 0.0 //交易量 amount
-            }
-        ]
-    }
-]
-```
-
-### 增量 response
-
-```javascript
-[
-    "qPairsKLine",
-    {
-        "t": 1537005600, //时间
-        "c": 0.0018, //收盘价
-        "o": 0.0018, //开盘价
-        "h": 0.0018, //最高价
-        "l": 0.0018, //最低价
-        "a": 0.0, //交易量 amount
-    }
-]
-```
-
-## Socket.io Demo(推荐)
-Socket.io官网: https://socket.io/
-
-```javascript
-  var io = require('socket.io-client'); //@1.3.6
-  //<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-
-  var socket = io('wss://ws.bkex.com/quotation', { transports: ['websocket'] });
-  
-  socket.on('connect', function (data) {
-    socket.emit('qAllConnect'); //获取24小时行情
-  });
-  
-```
-
-## Native WebScoket Demo
-
-```javascript
-    var pingPong = null;
-    ws = new WebSocket("wss://ws.bkex.com/socket.io/?EIO=3&transport=websocket");
-    ws.onopen = function() {
-      pingPong = setInterval(function () { //跟服务端ping pong 保持连接额状态
-        ws.send('2');
-      }, 20 * 1000)
-
-    };
-    ws.onmessage = function(e) {
-        
-        if(e.data === '40') { //链接成功
-          ws.send('40/quotation')
-        }
-
-        else if(e.data === '40/quotation') { //进入命名空间成功
-          ws.send('42/quotation,["quotationConnect",{"pair": "EOS_USDT","type": "15","from": 1536142476,"to": 1537865828,"no": "153700647609762483"}]')
-        } 
-        
-        else { //其他消息
-          
-        }
-    };
-
-```
-
-
-
+            "pair": "BKK_USDT",
