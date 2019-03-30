@@ -730,7 +730,7 @@ Response:
 
 # Web Socket API
 
-BASE_END_POINT=wss://ws.bkex.com
+BASE_END_POINT=wss://ws.bkex.vip
 
 命名空间 /quotation
 
