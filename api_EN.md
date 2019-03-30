@@ -701,11 +701,11 @@ Response:
 
 # Web Socket API
 
-BASE_END_POINT=https://api.bkex.vip
+BASE_END_POINT=wss://ws.bkex.vip
 
 #### Alternate Web Socket API address:
 
-BASE_END_POINT=https://api.bkex.com
+BASE_END_POINT=wss://ws.bkex.com
 
 Name space /quotation
 
