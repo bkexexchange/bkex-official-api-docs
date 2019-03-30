@@ -736,11 +736,11 @@ Response:
 
 # Web Socket API
 
-#### api地址:
+#### web socket api地址:
 
 BASE_END_POINT=wss://ws.bkex.vip
 
-#### 备用api地址:
+#### 备用web socket api地址:
 
 BASE_END_POINT=wss://ws.bkex.com
 
