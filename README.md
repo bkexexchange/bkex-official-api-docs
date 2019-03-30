@@ -776,14 +776,14 @@ BASE_END_POINT=wss://ws.bkex.com
         {
             "pair": "EOS_USDT", //交易对
             "p": "0.0017", //价格 price
-            "a": 100, //交易量 amount
+            "a": 100, //交易量 amount
             "t": 1536995478065, //时间
             "d": "S" //方向 direction
         },
         {
             "pair": "EOS_USDT", //交易对
             "p": "0.0016", //价格 price
-            "a": 100, //交易量 amount
+            "a": 100, //交易量 amount
             "t": 1536995476865, //时间
             "d": "S" //方向 direction
         }
