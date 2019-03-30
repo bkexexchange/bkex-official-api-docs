@@ -887,3 +887,110 @@ D：委托方向，S：卖单，B：买单
      ]
 ]
 ```
+
+## K 线
+
+### request
+```javascript
+[
+    "quotationConnect",
+    {
+        "pair": "EOS_USDT", //trading pair
+        "type": "15", //time interval
+        "from": 1536142476, //start time
+        "to": 1537006536, //end time
+        "no": "153700647609762483" //unique key
+    }
+]
+```
+类型包含 ’1’, '5', '15', '30', '60', '240', '360', '720', '1D', '1W’， 数字代表分钟, 1D代表：1天, 1W 代表：1周
+
+### 全量 
+
+### response
+```javascript
+[
+    "qPairsAllKLine",
+    {
+        "no": "153700647609762483",
+        "list": [
+            {
+                "t": 1536636600, //time
+                "c": 990.0, //closing price
+                "o": 10.0, //opening price
+                "h": 990.0, //the highest price
+                "l": 10.0, //the lowest price
+                "a": 262.25 //trading amount
+            },
+            {
+                "t": 1536637500, //time
+                "c": 4990.0, //closing price
+                "o": 10.0, //opening price
+                "h": 4990.0, //the highest price
+                "l": 10.0, //the lowest price
+                "a": 6165.05 //trading amount
+            },
+            {
+                "t": 1536638400, //time
+                "c": 0.0, //closing price
+                "o": 0.0, //opening price
+                "h": 0.0, //the highest price
+                "l": 0.0, //the lowest price
+                "a": 0.0 //trading amount
+            }
+        ]
+    }
+]
+```
+### 增量 
+### response
+```javascript
+[
+    "qPairsKLine",
+    {
+        "t": 1537005600, //time
+        "c": 0.0018, //closing price
+        "o": 0.0018, //opening price
+        "h": 0.0018, //the highest price
+        "l": 0.0018, //the lowest price
+        "a": 0.0, //trading amount
+    }
+]
+```
+## Socket.io Demo(Recommended)
+Socket.io Official Website: https://socket.io/
+```javascript
+  var io = require('socket.io-client'); //@1.3.6
+  //<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+  var socket = io('wss://ws.bkex.com/quotation', { transports: ['websocket'] });
+  
+  socket.on('connect', function (data) {
+    socket.emit('qAllConnect'); //get 24h change
+  });
+```
+## Native WebScoket Demo
+```javascript
+    var pingPong = null;
+    ws = new WebSocket("wss://ws.bkex.com/socket.io/?EIO=3&transport=websocket");
+    ws.onopen = function() {
+      pingPong = setInterval(function () { //stay linked with server end ping pong 
+        ws.send('2');
+      }, 20 * 1000)
+
+    };
+    ws.onmessage = function(e) {
+        
+        if(e.data === '40') { //connected successfully
+          ws.send('40/quotation')
+        }
+
+        else if(e.data === '40/quotation') { //entered into name space successfully
+          ws.send('42/quotation,["quotationConnect",{"pair": "EOS_USDT","type": "15","from": 1536142476,"to": 1537865828,"no": "153700647609762483"}]')
+        } 
+        
+        else { //other info
+          
+        }
+    };
+```
