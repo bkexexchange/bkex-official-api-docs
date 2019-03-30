@@ -18,7 +18,7 @@ accessKey: vmsUZE6mv9SD5VNak4HlWFsOr6aKE2zvsw0MuIgwCIGy6utIco14y7Ju91duEh82
 ### For example:
 ```json
 curl -X GET \
-  'http://<BASE_END_POINT>/v1/q/depth?&precision=2&pair=ETH_USDT' \
+  'https://<BASE_END_POINT>/v1/q/depth?&precision=2&pair=ETH_USDT' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'X_ACCESS_KEY: vmsUZE6mv9SD5VNak4HlWFsOr6aKE2zvsw0MuIgwCIGy6utIco14y7Ju91duEh82' \
