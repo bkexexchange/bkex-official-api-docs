@@ -6,6 +6,12 @@
 
 ### API服务域名：
 
+#### api地址:
+
+BASE_END_POINT=https://api.bkex.vip
+
+#### 备用api地址:
+
 BASE_END_POINT=https://api.bkex.com
 
 ### 加密过程
@@ -730,7 +736,13 @@ Response:
 
 # Web Socket API
 
+#### api地址:
+
 BASE_END_POINT=wss://ws.bkex.vip
+
+####备用api地址:
+
+BASE_END_POINT=wss://ws.bkex.com
 
 命名空间 /quotation
 
