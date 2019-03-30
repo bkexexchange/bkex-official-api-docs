@@ -22,7 +22,7 @@ accessKey: vmsUZE6mv9SD5VNak4HlWFsOr6aKE2zvsw0MuIgwCIGy6utIco14y7Ju91duEh82
 
 ```json
 curl -X GET \
-  'http://<BASE_END_POINT>/v1/q/depth?&precision=2&pair=ETH_USDT' \
+  'https://<BASE_END_POINT>/v1/q/depth?&precision=2&pair=ETH_USDT' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'X_ACCESS_KEY: vmsUZE6mv9SD5VNak4HlWFsOr6aKE2zvsw0MuIgwCIGy6utIco14y7Ju91duEh82' \
@@ -869,7 +869,7 @@ D：委托方向，S：卖单，B：买单
 
 ```javascript
 [
-    "qAllConnect"
+    "qAllConnect",{pair:"*"}
 ]
 ```
 
@@ -879,5 +879,11 @@ D：委托方向，S：卖单，B：买单
 [
     "qPairsStats",
     [
-        {
-            "pair": "BKK_USDT",
+        {pair: "BKK_USDT", o: 0.0698, c: 0.0712, h: 0.0734, l: 0.0694, a: 30079476.0691, r: 2}
+		...
+		...
+		...
+		{pair: "BEAM_USDT", o: 0.78, c: 0.804, h: 0.849, l: 0.773, a: 6649.3042, r: 3.07}
+	]
+]
+```
