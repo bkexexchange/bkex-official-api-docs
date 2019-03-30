@@ -740,7 +740,7 @@ Response:
 
 BASE_END_POINT=wss://ws.bkex.vip
 
-####备用api地址:
+#### 备用api地址:
 
 BASE_END_POINT=wss://ws.bkex.com
 
