@@ -6,6 +6,10 @@
 
 ### API Domain Name：
 
+BASE_END_POINT=https://api.bkex.vip
+
+####Alternate api address:
+
 BASE_END_POINT=https://api.bkex.com
 
 ### Encryption Process
@@ -697,7 +701,11 @@ Response:
 
 # Web Socket API
 
-BASE_END_POINT=wss://ws.bkex.com
+BASE_END_POINT=https://api.bkex.vip
+
+####Alternate Web Socket API address:
+
+BASE_END_POINT=https://api.bkex.com
 
 Name space /quotation
 
