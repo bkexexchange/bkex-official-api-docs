@@ -8,7 +8,7 @@
 
 BASE_END_POINT=https://api.bkex.vip
 
-####Alternate api address:
+#### Alternate api address:
 
 BASE_END_POINT=https://api.bkex.com
 
@@ -703,7 +703,7 @@ Response:
 
 BASE_END_POINT=https://api.bkex.vip
 
-####Alternate Web Socket API address:
+#### Alternate Web Socket API address:
 
 BASE_END_POINT=https://api.bkex.com
 
